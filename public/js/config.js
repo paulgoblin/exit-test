@@ -16,6 +16,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controllerAs: 'lc',
       templateUrl: '/html/login.html',
     })
+    .state('rated', {
+      url: '/',
+      controller: 'ratedCtrl',
+      controllerAs: 'rc',
+      templateUrl: '/html/rated.html',
+    })
 
   $urlRouterProvider.otherwise('/');
 });

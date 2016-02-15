@@ -5,8 +5,11 @@ var User = require('../models/user');
 
 var router = express.Router();
 
-router.get('/', function(req, res) {
-  res.send('hello, this is users');
+router.get('/:userId', function(req, res) {
+  User.findById(req.params.userId, (err, user) => {
+    if (err || !user) console.log("error logging in", err);
+    res.status( (err || !user) ? 400 : 200).send(err || user);
+  })
 });
 
 router.post('/login', (req, res) => {
