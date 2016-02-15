@@ -17,4 +17,15 @@ app.service('BeerSrvc', function($http, CONST) {
      })
   }
 
+  this.getThumbnail = (beerName) => {
+    return $http.get(`${CONST.THUMBNAIL_API}${beerName} beer photo`)
+     .success( resp => {
+       console.log("got thumbnail for", beerName);
+       this.randomBeer.thumb = resp.data;
+     })
+     .error( err => {
+       console.log("error getting thumbnail", err);
+     })
+  }
+
 })

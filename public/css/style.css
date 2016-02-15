@@ -1,3 +1,13 @@
+.beerCard {
+  max-width: 300px;
+  margin: auto;
+  padding: 1em;
+}
+
+.beerCard img {
+  border-radius: 4px;
+}
+
 .loginModal {
   height: 100vh;
   width: 100vw;
