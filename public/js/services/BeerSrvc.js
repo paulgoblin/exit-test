@@ -4,8 +4,8 @@ var app = angular.module('testApp');
 
 app.service('BeerSrvc', function($http, CONST) {
 
-  this.requestNewBeers = () => {
-    return $http.get(`${CONST.API_URL}/beers/newBeers`)
+  this.requestRandomBeer = () => {
+    return $http.get(`${CONST.API_URL}/beers/randomBeer`)
      .success( resp => {
        console.log("got new beers");
      })

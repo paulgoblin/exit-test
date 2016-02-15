@@ -6,8 +6,11 @@ var beerApi = require('../APIs/brewerydb')
 
 var router = express.Router();
 
-router.get('/newBeers', function(req, res) {
-  res.send(beerApi.test());
+router.get('/randomBeer', function(req, res) {
+  beerApi.getRandom( (err, body) => {
+    if (err) console.log("error registering", err);
+    res.status(err ? 400 : 200).send(err || body);
+  })
 });
 
 module.exports = router;
