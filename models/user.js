@@ -13,7 +13,7 @@ var userSchema = mongoose.Schema({
   password: { type: String, required: true },
   ratedBeers: {
     type: [{
-      beer: {type: String, required: true},
+      beer: {},
       rating: {type: Number, required: true}
     }],
     default: []
@@ -25,7 +25,7 @@ userSchema.statics.rateBeer = function(req, cb) {
   let rating = req.body.rating;
   let beerId = req.params.beerId;
   let ratedBeer = {
-    beer: beerId,
+    beer: req.body.beer,
     rating: rating
   }
   let update = { $addToSet: { ratedBeers: ratedBeer } };

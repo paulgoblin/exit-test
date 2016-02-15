@@ -23,6 +23,7 @@ app.controller('homeCtrl', function($scope, $state, LoginSrvc, UserSrvc, BeerSrv
     let body = {};
     body.rating = rating;
     body.userId = hc.me._id;
+    body.beer = beer;
     console.log("sending rating", body);
     UserSrvc.rateBeer(beer.id, body)
       .success( resp => {
