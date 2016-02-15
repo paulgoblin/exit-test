@@ -19,4 +19,4 @@ angular.module('testApp')
   console.log("hello this is beer card");
   let bc = this;
   bc.test = "poo";
-}
+})

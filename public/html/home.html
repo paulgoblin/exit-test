@@ -3,7 +3,9 @@
     <h3>Try logging in!</h3>
   </div>
   <div ng-if="hc.me" class="homeContent">
-    {{hc.me}}
+    <h2>Hello, {{hc.me.email}}</h2>
+    <h3>Rate a random beer!</h3>
+    <beer-card ng-if="hc.randomBeer" beer="hc.randomBeer"></beer-card>
   </div>
 
 </div>

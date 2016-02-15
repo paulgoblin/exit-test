@@ -7,6 +7,7 @@ app.controller('homeCtrl', function($scope, $state, LoginSrvc, UserSrvc, BeerSrv
   hc.me = UserSrvc.me;
   BeerSrvc.requestRandomBeer()
     .success( resp => {
-      console.log("homeCtrl has new beers", resp);
+      hc.randomBeer = resp.data
     })
+
 })
