@@ -18,5 +18,9 @@ app.service('LoginSrvc', function($http, CONST) {
      })
   }
 
+  let updateToken = () => {
+    // *poof* token updated!
+  }
+
 
 })

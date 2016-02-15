@@ -2,7 +2,7 @@
 
 var app = angular.module('testApp');
 
-app.controller('loginCtrl', function($scope, $state, LoginSrvc) {
+app.controller('loginCtrl', function($scope, $state, LoginSrvc, UserSrvc) {
   let lc = this;
 
   lc.closeLoginModal = () => {
@@ -14,15 +14,17 @@ app.controller('loginCtrl', function($scope, $state, LoginSrvc) {
   lc.submitLogin = () => {
     LoginSrvc.login(lc.loginInfo)
       .success( resp => {
-        console.log("you logged in!", resp);
+        UserSrvc.updateUser(resp)
         $state.go('home')
       })
   }
 
   lc.submitRegister = () => {
+    let pwmatch = lc.registerInfo.password === lc.registerInfo.password2;
+    if (!pwmatch) return alert('passwords gotta match, my fellow beer lover')
     LoginSrvc.register(lc.registerInfo)
       .success( resp => {
-        console.log("you registered", resp);
+        UserSrvc.updateUser(resp)
         $state.go('home')
       })
   }

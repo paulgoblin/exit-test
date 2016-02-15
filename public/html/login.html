@@ -6,7 +6,7 @@
     <div class="loginInputs">
       <div class="login">
         <h2>Log In</h2>
-        <input class="form-control" ng-model="lc.loginInfo.username" type="text" placeholder="Username" required/><br/>
+        <input class="form-control" ng-model="lc.loginInfo.email" type="text" placeholder="Email address" required/><br/>
         <input class="form-control" ng-model="lc.loginInfo.password" type="password" placeholder="Password" required/><br/>
         <button class="form-control btn btn-primary" ng-click="lc.submitLogin(lc.loginInfo)">Log In</button>
         <br/>
@@ -14,7 +14,7 @@
       </div>
       <div class="register">
         <h2>Register</h2>
-        <input class="form-control" ng-model="lc.registerInfo.username" type="text" placeholder="Username" required/><br/>
+        <input class="form-control" ng-model="lc.registerInfo.email" type="text" placeholder="Email address" required/><br/>
         <input class="form-control" ng-model="lc.registerInfo.password" type="password" placeholder="Password" required/><br/>
         <input class="form-control" ng-model="lc.registerInfo.password2" type="password" placeholder="Confirm Password" required/><br/>
         <button class="form-control btn btn-primary" ng-click="lc.submitRegister(lc.registerInfo)">Register</button>

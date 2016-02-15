@@ -25,6 +25,11 @@ userSchema.statics.register = function(user, cb) {
         newUser.email = email;
         newUser.password = hash;
         newUser.save(function(err, savedUser){
+          if (err || !savedUser) {
+            console.log("error registering", err);
+            cb(err);
+            return
+          }
           savedUser.password = null;
           cb(err, savedUser);
         });
