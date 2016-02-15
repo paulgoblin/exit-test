@@ -1,7 +1,7 @@
 <div>
   <h1>Beers I've rated</h1>
-  <beer-card ng-repeat="beer in rc.ratedBeers" beer="beer.beer">
+  <beer-card ng-repeat="ratedBeer in rc.ratedBeers" beer="ratedBeer.beer">
     <hr />
-    <p><strong>Rating:</strong> {{beer.rating}}</p>
+    <p><strong>Rating:</strong> {{ratedBeer.rating}}</p>
   </beer-card>
 </div>

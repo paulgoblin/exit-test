@@ -20,6 +20,5 @@ angular.module('testApp')
 })
 
 .controller('beerCardCtrl', function() {
-  console.log("hello this is beer card");
   let bc = this;
 })
