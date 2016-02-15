@@ -9,7 +9,7 @@ This is a MEAN Stack Scaffold which includes:
 - jQuery
 - Bootstrap
 
-Also included is a User model, which has built in methods and some middleware.
+Also included is a User model, which has built in methods and some middleware.  You'll need to modify parts of this user model to make it work with the rest of your app.  For instance, the auth middleware is expecting a JWT token in a standard Authorization header, but you may like to do something else.
 
 ### Installation
 
