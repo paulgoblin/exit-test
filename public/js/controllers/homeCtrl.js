@@ -20,7 +20,11 @@ app.controller('homeCtrl', function($scope, $state, LoginSrvc, UserSrvc, BeerSrv
 
   hc.rateBeer = (beer, rating) => {
     console.log("rating", rating);
-    UserSrvc.rateBeer(beer.id, {rating: rating})
+    let body = {};
+    body.rating = rating;
+    body.userId = hc.me._id;
+    console.log("sending rating", body);
+    UserSrvc.rateBeer(beer.id, body)
       .success( resp => {
         console.log("rated beer", resp);
         requestRandomBeer();

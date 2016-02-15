@@ -10,8 +10,31 @@ var User;
 
 var userSchema = mongoose.Schema({
   email: { type: String, required: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  ratedBeers: {
+    type: [{
+      beer: {type: String, required: true},
+      rating: {type: Number, required: true}
+    }],
+    default: []
+  }
 });
+
+userSchema.statics.rateBeer = function(req, cb) {
+  let userId = req.body.userId;
+  let rating = req.body.rating;
+  let beerId = req.params.beerId;
+  let ratedBeer = {
+    beer: beerId,
+    rating: rating
+  }
+  let update = { $addToSet: { ratedBeers: ratedBeer } };
+  console.log("about to rate", update, userId);
+  User.findByIdAndUpdate(userId, update, (err, user) => {
+    if (err) return cb(err);
+    cb(null, user);
+  })
+}
 
 userSchema.statics.register = function(user, cb) {
   var email = user.email;
