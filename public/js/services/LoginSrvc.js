@@ -9,12 +9,18 @@ app.service('LoginSrvc', function($http, CONST) {
      .success( resp => {
        updateToken(resp);
      })
+     .error( err => {
+       console.log("error logging in", err);
+     })
   }
 
   this.register = (registerInfo) => {
     return $http.post(`${CONST.API_URL}/users/register`, registerInfo)
      .success( resp => {
        updateToken(resp);
+     })
+     .error( err => {
+       console.log("error logging in", err);
      })
   }
 

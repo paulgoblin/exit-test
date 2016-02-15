@@ -1,3 +1,9 @@
 <div class="container">
-  <h1>Welcome</h1>
+  <div ng-if="!hc.me">
+    <h3>Try logging in!</h3>
+  </div>
+  <div ng-if="hc.me" class="homeContent">
+    {{hc.me}}
+  </div>
+
 </div>

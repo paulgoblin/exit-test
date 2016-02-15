@@ -14,8 +14,11 @@ app.controller('loginCtrl', function($scope, $state, LoginSrvc, UserSrvc) {
   lc.submitLogin = () => {
     LoginSrvc.login(lc.loginInfo)
       .success( resp => {
-        UserSrvc.updateUser(resp)
+        UserSrvc.updateUser(resp);
         $state.go('home')
+      })
+      .error( err => {
+        alert(err);
       })
   }
 
@@ -24,8 +27,11 @@ app.controller('loginCtrl', function($scope, $state, LoginSrvc, UserSrvc) {
     if (!pwmatch) return alert('passwords gotta match, my fellow beer lover')
     LoginSrvc.register(lc.registerInfo)
       .success( resp => {
-        UserSrvc.updateUser(resp)
+        UserSrvc.updateUser(resp);
         $state.go('home')
+      })
+      .error( err => {
+        alert(err);
       })
   }
 

@@ -4,7 +4,12 @@ var app = angular.module('testApp');
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('home', { url: '/', templateUrl: '/html/home.html' })
+    .state('home', {
+      url: '/',
+      controller: 'homeCtrl',
+      controllerAs: 'hc',
+      templateUrl: '/html/home.html',
+    })
     .state('login', {
       url: '/',
       controller: 'loginCtrl',
