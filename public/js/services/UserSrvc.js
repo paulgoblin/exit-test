@@ -8,5 +8,15 @@ app.service('UserSrvc', function($http, CONST) {
     this.me = user;
   }
 
+  this.rateBeer = (beerId, rating) => {
+    return $http.post(`${CONST.API_URL}/users/rateBeer/${beerId}`, rating)
+     .success( resp => {
+       console.log("rated beer", resp);
+     })
+     .error( err => {
+       console.log("error ratign beer", err);
+     })
+  }
+
 
 })

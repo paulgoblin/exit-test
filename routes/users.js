@@ -23,4 +23,12 @@ router.post('/register', (req, res) => {
   });
 });
 
+router.post('/rateBeer/:beerId', (req, res) => {
+  res.send('rated beer!')
+  // User.rateBeer( req.params.beerId, (err, token) => {
+  //   if (err) console.log("error registering", err);
+  //   res.status(err ? 400 : 200).send(err || token);
+  // });
+});
+
 module.exports = router;

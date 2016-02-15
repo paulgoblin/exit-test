@@ -5,6 +5,7 @@ angular.module('testApp')
   return {
     restrict: 'E',
     replace: true,
+    transclude: true,
     controller: 'beerCardCtrl',
     controllerAs: 'bc',
     scope: true,
@@ -12,6 +13,9 @@ angular.module('testApp')
       beer: "="
     },
     templateUrl:'/html/beerCard.html',
+    link: function(scope, el, attrs, ctrl, transclude) {
+      el.append(transclude());
+    },
   }
 })
 
