@@ -2,14 +2,12 @@
 
 var express = require('express');
 var User = require('../models/user');
-
-let BEER_API = 'http://api.brewerydb.com/v2/';
-let BEER_KEY = process.env.BEER_KEY;
+var beerApi = require('../APIs/brewerydb')
 
 var router = express.Router();
 
 router.get('/newBeers', function(req, res) {
-  res.send('hello, this is beer');
+  res.send(beerApi.test());
 });
 
 module.exports = router;
